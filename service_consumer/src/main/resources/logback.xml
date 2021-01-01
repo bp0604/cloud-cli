@@ -18,7 +18,7 @@
     </appender>
     <!-- INFO 输出配置 -->
     <appender name="logInfoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/home/logs/service-consumer/info.log</File>
+        <File>/Users/baopeng/Code/logs/service-consumer/info.log</File>
         <encoder>
             <Pattern>[%d] [%thread] [%level] [%file:%line] %msg%n</Pattern>
             <charset>UTF-8</charset>
@@ -34,7 +34,7 @@
 
     <!-- ERROR 输出配置 -->
     <appender name="logErrorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/home/logs/service-consumer/error.log</File>
+        <File>/Users/baopeng/Code/logs/service-consumer/error.log</File>
         <encoder>
             <Pattern>[%d] [%thread] [%level] [%file:%line] %msg%n</Pattern>
             <charset>UTF-8</charset>
