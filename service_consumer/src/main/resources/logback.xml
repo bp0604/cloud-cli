@@ -24,7 +24,7 @@
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/logs/service-consumer/%d{yyyy-MM-dd}.%i/info.log</fileNamePattern>
+            <fileNamePattern>/Users/baopeng/Code/logs/service-consumer/%d{yyyy-MM-dd}.%i/info.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>1024MB</maxFileSize>
@@ -40,7 +40,7 @@
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/logs/service-consumer/%d{yyyy-MM-dd}.%i/error.log</fileNamePattern>
+            <fileNamePattern>/Users/baopeng/Code/logs/service-consumer/%d{yyyy-MM-dd}.%i/error.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>1024MB</maxFileSize>
