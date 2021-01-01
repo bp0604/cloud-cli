@@ -18,13 +18,13 @@
     </appender>
     <!-- INFO 输出配置 -->
     <appender name="logInfoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/Users/baopeng/Code/logs/service-consumer/info.log</File>
+        <File>logs/service-consumer/info.log</File>
         <encoder>
             <Pattern>[%d] [%thread] [%level] [%file:%line] %msg%n</Pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/Users/baopeng/Code/logs/service-consumer/%d{yyyy-MM-dd}.%i/info.log</fileNamePattern>
+            <fileNamePattern>logs/service-consumer/%d{yyyy-MM-dd}.%i/info.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>1024MB</maxFileSize>
@@ -34,13 +34,13 @@
 
     <!-- ERROR 输出配置 -->
     <appender name="logErrorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/Users/baopeng/Code/logs/service-consumer/error.log</File>
+        <File>logs/service-consumer/error.log</File>
         <encoder>
             <Pattern>[%d] [%thread] [%level] [%file:%line] %msg%n</Pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/Users/baopeng/Code/logs/service-consumer/%d{yyyy-MM-dd}.%i/error.log</fileNamePattern>
+            <fileNamePattern>logs/service-consumer/%d{yyyy-MM-dd}.%i/error.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>1024MB</maxFileSize>
