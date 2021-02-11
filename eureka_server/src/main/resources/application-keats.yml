@@ -1,8 +1,9 @@
 server:
   port: 9000
+
 eureka:
   server:
-    enable-self-preservation: false # 关闭自我保护
+    enable-self-preservation: false # 开发环境关闭自我保护。 Warning
     eviction-interval-timer-in-ms: 10000 # 剔除服务间隔，单位/ms
   instance:
     hostname: localhost
@@ -12,6 +13,7 @@ eureka:
     service-url: # Eureka Client 的请求地址, localhost:9000
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 #      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}:${server.port}/eureka
+
 spring:
   application:
     name: EUREKA-SERVER

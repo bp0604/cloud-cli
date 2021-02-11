@@ -19,5 +19,6 @@ eureka:
   instance:
     prefer-ip-address: true # 使用IP地址注册
     instance-id: ${spring.cloud.client.ip-address}:${server.port} # 自定义注册ID为ip:端口的格式
-#    lease-renewal-interval-in-seconds: 5 #发送心跳的间隔
-#    lease-expiration-duration-in-seconds: 10 #续约到期时间
+    lease-renewal-interval-in-seconds: 5 #发送心跳的间隔, dev
+    lease-expiration-duration-in-seconds: 10 #续约到期时间, dev
+
