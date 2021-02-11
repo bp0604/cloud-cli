@@ -25,10 +25,12 @@ import java.util.List;
 @RequestMapping("api/v1")
 @Slf4j
 public class TeacherController {
-//    @Autowired
-//    private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
+
 //    @Autowired
 //    private DiscoveryClient discoveryClient;
+
     @Autowired
     private UserServiceFeignClient userServiceFeignClient;
 
@@ -39,7 +41,7 @@ public class TeacherController {
     @GetMapping("teacher/user/{age}")
     public User getUserByAge(@PathVariable Integer age){
 
-        if(age < 1){
+        if(age < 15){
             throw new KeatsException(ExceptionEnum.NUM_LESS_THAN_MIN);
         }
 
@@ -67,10 +69,10 @@ public class TeacherController {
     /**
      * 基于 Ribbon 的调用。直接使用服务名称. 返回服务提供者的IP和端口
      */
-//    @GetMapping("ip")
-//    public String getUrl(){
-//        return restTemplate.getForObject("http://SERVICE-PROVIDER/api/v1/ribbon", String.class);
-//    }
+    @GetMapping("ip")
+    public String getUrl(){
+        return restTemplate.getForObject("http://SERVICE-PROVIDER/api/v1/ribbon", String.class);
+    }
 
     /**
      * 基于 Ribbon 的调用。直接使用服务名称
@@ -87,8 +89,9 @@ public class TeacherController {
 //        return restTemplate.getForObject("http://SERVICE-PROVIDER/api/v1/users", List.class);
 //    }
 
+
     /**
-     * 使用 RestTemplate 调用不带惨的GET请求
+     * 使用 RestTemplate 调用不带参的GET请求
      * @return
      */
 //    @GetMapping("teacher/users")
@@ -109,4 +112,7 @@ public class TeacherController {
 //
 //        return restTemplate.getForObject(serviceInstance.getUri() + "/api/v1/user/{age}", User.class, age);
 //    }
+
+
+
 }

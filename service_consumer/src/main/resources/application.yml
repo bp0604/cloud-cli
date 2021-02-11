@@ -3,23 +3,31 @@ server:
 spring:
   application:
     name: SERVICE-CONSUMER # 服务名称
+#  datasource:
+#    url: jdbc:mysql://192.168.25.128:3306/mysql?characterEncoding=UTF-8&useSSL=false&serverTimezone=CTT
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: keats
+#    password: 521
   cloud:
     loadbalancer:
       retry:
         enabled: true # 重试开关 默认 true
+
 eureka:
   client:
     service-url: # 刚刚在Eureka Server 配置的请求地址
       defaultZone: http://localhost:9000/eureka/ # ,http://localhost:9100/eureka/
-    fetch-registry: true
     register-with-eureka: true
+#    register-with-eureka: false
+    fetch-registry: true # 从Eureka获取注册信息。
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port} # 自定义注册ID为ip:端口的格式
-    lease-renewal-interval-in-seconds: 5 #发送心跳的间隔
-    lease-expiration-duration-in-seconds: 10 #续约到期时间
+#    lease-renewal-interval-in-seconds: 5 #发送心跳的间隔
+#    lease-expiration-duration-in-seconds: 10 #续约到期时间
+# Euraka 客户端默认每隔 30 S向服务端发送一次心跳请求，如果服务端 90 S没有收到某客户端发送的请求将视为客户端宕机。会将其从服务列表剔除
 
-# actuator监控
+# actuator监控, http://localhost:9003/actuator
 management:
   endpoints:
     web:

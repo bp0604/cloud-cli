@@ -3,6 +3,7 @@ package cn.keats.service_consumer.advice;
 import cn.keats.service_consumer.exception.ExceptionEnum;
 import cn.keats.service_consumer.exception.KeatsException;
 import cn.keats.service_consumer.transformat.Result;
+import feign.FeignException;
 import feign.RetryableException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -43,6 +44,7 @@ public class KeatsExceptionAdvice {
 
     /**
      * 功能：其余非预先规避的异常返回错误
+     * Producer 关闭后请求，就会报这个!
      *
      * @param e
      * @return woke.cloud.property.transformat.Result
@@ -84,6 +86,16 @@ public class KeatsExceptionAdvice {
     public Result paramException(HttpRequestMethodNotSupportedException e) {
         log.warn("请求方法错误: " + e);
         return Result.Exception(new KeatsException(1, "请求方法错误！"), null);
+    }
+
+    /**
+     * 2021 update
+     */
+    @ExceptionHandler(value = FeignException.class)
+    @ResponseBody
+    public Result feignException(FeignException e) {
+        log.warn("feignException请求方法错误: " + e);
+        return Result.Exception(new KeatsException(1, "feignException请求方法错误！"), null);
     }
 
     /**
