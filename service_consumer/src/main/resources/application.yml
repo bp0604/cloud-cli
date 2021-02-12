@@ -11,7 +11,7 @@ spring:
   cloud:
     loadbalancer:
       retry:
-        enabled: true # 重试开关 默认 true
+        enabled: true # 重试开关 默认 true, 需要先引入spring-retry
 
 eureka:
   client:
@@ -50,6 +50,7 @@ info:
 # 可以通过 服务名：ribbon:NFLoadBalancerRuleClassName: 对应的策略全类名
 SERVICE-PROVIDER:
   ribbon:
+    # 负载均衡算法策略
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
     ConnectTimeout: 250 # 与服务提供方建立Http连接的超时时间
     ReadTimeout: 1000 # 接收返回数据的超时时间
@@ -64,7 +65,8 @@ feign:
       SERVICE-PROVIDER:
         loggerLevel: FULL # NONE(默认选项), BASIC, HEADERS, FULL; 内容依次丰富、性能影响依次增大
   hystrix:
-    enabled: true # 打开 feign 的 hystrix 支持
+#    enabled: true # 打开 feign 的 hystrix 支持
+    enabled: false # 打开 feign 的 hystrix 支持
 
 # 日志
 logging:

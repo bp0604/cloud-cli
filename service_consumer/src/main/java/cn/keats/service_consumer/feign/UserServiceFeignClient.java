@@ -14,12 +14,16 @@ import java.util.List;
  * @Author: keats_coder
  * @Date: 2020/3/7
  * @Version 1.0
+ *
+ * https://www.cnblogs.com/keatsCoder/p/13028727.html
+ *
  */
 // fallback 和 fallbackFactory 同时存在时，fallback 的优先级更高
 //@FeignClient(name = "SERVICE-PROVIDER", fallback = UserServiceFeignClientFallBack.class, fallbackFactory = UserServiceFallbackFactory.class)
 //@FeignClient(name = "SERVICE-PROVIDER", fallbackFactory = UserServiceFallbackFactory.class)
 // feign 不使用 hystrix
-@FeignClient(name = "SERVICE-PROVIDER", configuration = {FeignDisableHystrixConfiguration.class})
+//@FeignClient(name = "SERVICE-PROVIDER", configuration = {FeignDisableHystrixConfiguration.class})
+@FeignClient(name = "SERVICE-PROVIDER", fallback = UserServiceFeignClientFallBack.class)
 public interface UserServiceFeignClient {
 
     @GetMapping("/api/v1/user/{age}")

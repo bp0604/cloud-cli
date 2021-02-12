@@ -37,7 +37,7 @@ public class TeacherController {
     /**
      * 基于 Feign 的优雅的接口调用方式
      */
-//    @HystrixCommand(fallbackMethod = "getUserByAgeFallBack", ignoreExceptions = {KeatsException.class})
+//    @HystrixCommand(fallbackMethod = "getUserByAgeFallBack", ignoreExceptions = {KeatsException.class})  // 测试：将服务提供方的代码打断点。调用服务消费方，会发现返回了默认用户
     @GetMapping("teacher/user/{age}")
     public User getUserByAge(@PathVariable Integer age){
 

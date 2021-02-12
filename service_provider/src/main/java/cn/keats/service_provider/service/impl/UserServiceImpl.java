@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 /**
  * @Author: keats_coder
  * @Date: 2020/2/13
@@ -32,6 +34,19 @@ public class UserServiceImpl implements UserService {
             user.setName("五月天");
             user.setAge(20);
         }
+
+        try {
+            System.out.println("sleep for 5  seconds.");
+            Thread.sleep(5000);
+            // The "main" thread will sleep
+            System.out.println("woke up.");
+        } catch (InterruptedException e) {
+            System.out.println("interrupted.");
+        }
+
+
+
+
         return user;
     }
 
